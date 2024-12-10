@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+/* Personalización del fondo de los campos de formulario */
+.form-control {
+    background-color: #ffffff;
+    border: 1px solid #e60012;
+    color: #000000;
+}
+
+.form-control:focus {
+    border-color: #cc0000;
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.5);
+}
+
+/* Botones */
+.btn {
+    background-color: #e60012;
+    border-color: #e60012;
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+}
+
+/* Botón de éxito (Transferir) */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+/* Personalización de los alertas de validación */
+.is-invalid {
+    border-color: #cc0000;
+}
+
+.invalid-feedback {
+    color: #cc0000;
+}
+
+/* Personalización de las ventanas */
+.container {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e60012;
+}
+
+/* Sección de historial y saldo */
+.mt-4 {
+    margin-top: 20px;
+}
+
+ul.list-group {
+    margin-top: 10px;
+    padding: 0;
+}
+
+/* Tarjetas (si se usan para mostrar contenido) */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e60012;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #e60012;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #ffffff;
+    color: #000000;
+}

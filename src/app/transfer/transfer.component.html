@@ -1,0 +1,83 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- Cuadro de Realizar Transferencia -->
+    <div class="col-lg-6">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+          <h2>Transferir</h2>
+        </div>
+        <div class="card-body">
+          <form (submit)="onSubmit($event)">
+            <div class="mb-3">
+              <label for="accountNumber" class="form-label fw-bold">Numero de cuenta:</label>
+              <input
+                type="text"
+                id="accountNumber"
+                class="form-control"
+                [class.is-invalid]="accountNumberError"
+                placeholder="Ingresa el número de cuenta"
+                required
+              />
+              <div *ngIf="accountNumberError" class="invalid-feedback">
+                Por favor, ingresa un número de cuenta válido.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="amount" class="form-label fw-bold">Monto a transferir:</label>
+              <input
+                type="number"
+                id="amount"
+                class="form-control"
+                [class.is-invalid]="amountError"
+                placeholder="Ingresa el monto a transferir"
+                required
+              />
+              <div *ngIf="amountError" class="invalid-feedback">
+                Por favor, ingresa un monto válido mayor a 0.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label fw-bold">Descripción:</label>
+              <textarea
+                id="description"
+                class="form-control"
+                placeholder="Ingresa una descripción (opcional)"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Transferir</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna para Saldo Actual y Historial de Transferencias -->
+    <div class="col-lg-6">
+      <!-- Saldo Actual -->
+      <div class="mb-4">
+        <h3 class="text-start">Saldo Actual: ${{ currentBalance }}</h3>
+      </div>
+
+      <!-- Historial de Transferencias -->
+      <div>
+        <h3 class="text-start text-primary">Historial de Transferencias</h3>
+        <ul class="list-group mt-3">
+          <li
+            *ngFor="let transfer of transfers"
+            class="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Cuenta: {{ transfer.accountNumber }}</div>
+              <div>Monto: ${{ transfer.amount }}</div>
+              <div>Descripción: {{ transfer.description }}</div>
+              <small class="text-muted">Fecha: {{ transfer.date }}</small>
+            </div>
+          </li>
+        </ul>
+        <p *ngIf="transfers.length === 0" class="text-muted mt-3">No hay transferencias registradas.</p>
+      </div>
+    </div>
+  </div>
+</div>
